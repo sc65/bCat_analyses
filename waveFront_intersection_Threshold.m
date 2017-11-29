@@ -1,8 +1,8 @@
 %% Characterising the movement of active Wnt response domain - position & rate of movement
 
 rA_all_norm = rA_all_new./max(max(rA_all_new));
-rA_error1_norm = rA_stdError./max(max(rA_all));
-rA_colonies1_norm = rA_colonies1./max(max(rA_all));
+rA_error1_norm = rA_stdError./max(max(rA_all_new));
+rA_colonies1_norm = rA_colonies1./max(max(rA_all_new));
 
 rA_norm_colonies_avg  = cat(3, rA_colonies1_norm, rA_all_norm); %(t, bin, [colonies1-10 average]);
 binValues = (bins(1:end-1)+bins(2:end))./2 ;
@@ -101,7 +101,7 @@ ax = gca; ax.FontSize = 12; ax.FontWeight = 'bold';
 
 
 %% fitting the wavefront position of average radial average to a linear function
-front_colonyAvg = frontEnd_21(4:end,11);
+front_colonyAvg = frontEnd(24:end,11);
 front_colonyAvg = front_colonyAvg(any(front_colonyAvg,2), 1);
 nElements = size(front_colonyAvg,1);
 x21_colonyAvg = x21(numel(x21)-nElements+1 : end);
